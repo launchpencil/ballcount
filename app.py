@@ -3,20 +3,26 @@ import requests as r
 
 st.title('hello world!')
 
-response = r.get('https://api.launchpencil.f5.si/zikanwari/?user=1-4&pass=tokoroten')
-if response.status_code == 200:
-    
-    a = response.text.split(',')
+with st.form(key='login_form'):
+    username = st.text_input('ユーザー名')
+    password = st.text_input('パスワード', type='password')
+    submit_button = st.form_submit_button(label='ログイン')
 
-    table_data = [[0 for j in range(5)] for i in range(7)]
-    table_data[1][2] = 5
+if submit_button:
+    response = r.get(f'https://api.launchpencil.f5.si/zikanwari/?user={username}&pass={password}')
+    if response.status_code == 200:
+        
+        a = response.text.split(',')
 
-    for i in range(0, 35):
-        table_data[i//5][i%5] = a[i]
+        table_data = [[0 for j in range(5)] for i in range(7)]
+        table_data[1][2] = 5
 
-        print ([i//5] + [i%5])
+        for i in range(0, 35):
+            table_data[i//5][i%5] = a[i]
 
-    st.table(table_data)
-else:
-    # エラーが発生した場合はエラーメッセージを表示する
-    print("Error: {}".format(response.status_code))
+            print ([i//5] + [i%5])
+
+        st.table(table_data)
+    else:
+        # エラーが発生した場合はエラーメッセージを表示する
+        print("Error: {}".format(response.status_code))
