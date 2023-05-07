@@ -14,6 +14,13 @@ if submit_button:
         
         a = response.text.split(',')
 
+        if a[0] == 'エラー':
+            if str(a[1]).startswith("Access denied for user"):
+                st.error('認証に失敗しました。ユーザー名またはパスワードが間違っているか設定されていません。')
+            else:
+                st.error(a[1])
+            st.stop()
+
         table_data = [[0 for j in range(5)] for i in range(7)]
         table_data[1][2] = 5
 
