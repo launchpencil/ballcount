@@ -14,9 +14,13 @@ if submit_button:
         
         a = response.text.split(',')
 
+        if a[0] == 'エラー':
+            st.error(a[1])
+            st.stop()
+
         for i in range(len(a) -1):
             st.markdown('* ' + a[i])
         st.write('タスクは以上です')
     else:
         # エラーが発生した場合はエラーメッセージを表示する
-        print("Error: {}".format(response.status_code))
+        st.error(response.status_code)

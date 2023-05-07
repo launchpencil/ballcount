@@ -23,4 +23,4 @@ if submit_button:
         st.table(table_data)
     else:
         # エラーが発生した場合はエラーメッセージを表示する
-        print("Error: {}".format(response.status_code))
+        st.error(response.status_code)
