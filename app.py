@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.title(‘ランナーなし’)
+st.title("ランナーなし")
+
 straight = st.number_input("ストレート", value=0)
 curve = st.number_input("カーブ", value=0)
 slider = st.number_input("スライダー", value=0)
