@@ -13,6 +13,8 @@ two = st.number_input("ツーシーム", value=0)
 sinka = st.number_input("シンカー", value=0)
 shoot = st.number_input("シュート", value=0)
 
+sumnorun = straight + curve + slider + changeup + fork + cutball + two + sinka + shoot
+
 data = {
     'ストレート' : [straight],
     'カーブ' : [curve],
@@ -22,7 +24,9 @@ data = {
     'カットボール' : [cutball],
     'ツーシーム' : [two],
     'シンカー' : [sinka],
-    'シュート' : [shoot]
+    'シュート' : [shoot],
+			'合計' : [sumnorun]
     }
-df = pd.DataFrame(data, columns=["ストレート", "カーブ", "スライダー", "チェンジアップ", "フォーク", "カットボール", "ツーシーム", "シンカー", "シュート"])
+
+df = pd.DataFrame(data, columns=["ストレート", "カーブ", "スライダー", "チェンジアップ", "フォーク", "カットボール", "ツーシーム", "シンカー", "シュート", "合計"])
 df
