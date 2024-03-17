@@ -15,18 +15,19 @@ shoot = st.number_input("シュート", value=0)
 
 sumnorun = straight + curve + slider + changeup + fork + cutball + two + sinka + shoot
 
-data = {
-    'ストレート' : [straight],
-    'カーブ' : [curve],
-    'スライダー' : [slider],
-    'チェンジアップ' : [changeup],
-    'フォーク' : [fork],
-    'カットボール' : [cutball],
-    'ツーシーム' : [two],
-    'シンカー' : [sinka],
-    'シュート' : [shoot],
-	'合計' : [sumnorun]
-    }
+if sumnorun != 0:
+    data = {
+        'ストレート' : [straight, straight/sumnorun],
+        'カーブ' : [curve, curve/sumnorun],
+        'スライダー' : [slider, slider/sumnorun],
+        'チェンジアップ' : [changeup, changeup/sumnorun],
+        'フォーク' : [fork, fork/sumnorun],
+        'カットボール' : [cutball, cutball/sumnorun],
+        'ツーシーム' : [two, two/sumnorun],
+        'シンカー' : [sinka, sinka/sumnorun],
+        'シュート' : [shoot, shoot/sumnorun],
+        '合計' : [sumnorun, 1]
+        }
 
-df = pd.DataFrame(data, columns=["ストレート", "カーブ", "スライダー", "チェンジアップ", "フォーク", "カットボール", "ツーシーム", "シンカー", "シュート", "合計"])
-df
+    df = pd.DataFrame(data, index=["球数", "割合"])
+    st.table(df.T)
