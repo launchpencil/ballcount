@@ -30,4 +30,4 @@ if sumnorun != 0:
         }
 
     df = pd.DataFrame(data, index=["球数", "割合"])
-    st.table(df.T)
+    st.dataframe(df.T)
