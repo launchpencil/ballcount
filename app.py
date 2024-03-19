@@ -29,7 +29,6 @@ if 'df7' in st.session_state:
 if 'df8' in st.session_state:
     adddf = adddf.add(st.session_state.df8, fill_value=0)
 
-if not ["割合", "合計"] == 1:
-    adddf.loc["割合"] = adddf.loc["割合"] / adddf.loc["割合", "合計"]
+adddf.loc["割合"] = adddf.loc["球数"] / adddf.loc["球数", "合計"]
 
 st.dataframe(adddf.T)
