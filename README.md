@@ -1,3 +1,3 @@
-# streamlit-test
+# ballcount
 
-時間割のAPI叩くだけ
+球数を
