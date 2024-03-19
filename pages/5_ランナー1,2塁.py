@@ -16,25 +16,15 @@ if 'df5' in st.session_state:
     shoot = st.number_input("シュート", value=math.floor(st.session_state.df5.loc["球数", "シュート"]))
 
 else:
-    straight = st.number_input("ストレート", value=0)
-    curve = st.number_input("カーブ", value=0)
-    slider = st.number_input("スライダー", value=0)
-    changeup = st.number_input("チェンジアップ", value=0)
-    fork = st.number_input("フォーク", value=0)
-    cutball = st.number_input("カットボール", value=0)
-    two = st.number_input("ツーシーム", value=0)
-    sinka = st.number_input("シンカー", value=0)
-    shoot = st.number_input("シュート", value=0)
-
-straight = st.number_input("ストレート", value=0)
-curve = st.number_input("カーブ", value=0)
-slider = st.number_input("スライダー", value=0)
-changeup = st.number_input("チェンジアップ", value=0)
-fork = st.number_input("フォーク", value=0)
-cutball = st.number_input("カットボール", value=0)
-two = st.number_input("ツーシーム", value=0)
-sinka = st.number_input("シンカー", value=0)
-shoot = st.number_input("シュート", value=0)
+    straight = st.number_input("ストレート", value=0, key="ストレート1")
+    curve = st.number_input("カーブ", value=0, key="カーブ1")
+    slider = st.number_input("スライダー", value=0, key="スライダー1")
+    changeup = st.number_input("チェンジアップ", value=0, key="チェンジアップ1")
+    fork = st.number_input("フォーク", value=0, key="フォーク1")
+    cutball = st.number_input("カットボール", value=0, key="カットボール1")
+    two = st.number_input("ツーシーム", value=0, key="ツーシーム1")
+    sinka = st.number_input("シンカー", value=0, key="シンカー1")
+    shoot = st.number_input("シュート", value=0, key="シュート1")
 
 sumnorun = straight + curve + slider + changeup + fork + cutball + two + sinka + shoot
 
