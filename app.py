@@ -52,3 +52,38 @@ if 'df12' in st.session_state:
 
 adddf2.loc["割合"] = adddf2.loc["球数"] / adddf2.loc["球数", "合計"]
 st.dataframe(adddf2.T)
+
+
+st.subheader("コース別")
+adddf3 = pd.DataFrame(pd.DataFrame(columns=['ストレート', 'カーブ', 'スライダー', 'チェンジアップ', 'フォーク', 'カットボール', 'ツーシーム', 'シンカー', 'シュート', '合計'], index=["球数", "割合"]))
+
+if 'df13' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df13, fill_value=0)
+
+if 'df14' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df14, fill_value=0)
+
+if 'df15' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df15, fill_value=0)
+
+if 'df16' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df16, fill_value=0)
+
+if 'df17' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df17, fill_value=0)
+
+if 'df18' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df18, fill_value=0)
+
+if 'df19' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df19, fill_value=0)
+
+if 'df20' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df20, fill_value=0)
+
+if 'df21' in st.session_state:
+    adddf3 = adddf3.add(st.session_state.df21, fill_value=0)
+
+adddf3.loc["割合"] = adddf3.loc["球数"] / adddf3.loc["球数", "合計"]
+
+st.dataframe(adddf3.T)
